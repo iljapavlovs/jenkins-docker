@@ -1,6 +1,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
+* https://jenkins.io/doc/book/installing/
+
+The recommended Docker image to use is the jenkinsci/blueocean image (from the Docker Hub repository). This image contains the current Long-Term Support (LTS) release of Jenkins (which is production-ready) bundled with all Blue Ocean plugins and features. This means that you do not need to install the Blue Ocean plugins separately.
+
 # jenkins-docker
 Jenkins in a Docker container, with Docker inside.
 
@@ -19,7 +23,7 @@ Its possible to run into some problems with Docker running inside another Docker
 The easiest way is to pull from Docker Hub:
 
     docker run -it -p 8080:8080 -p 50000:50000 \
-	    -v jenkins_home:/var/jenkins_home \
+	    -v /Users/iljapavlovs/Desktop/Projects/ilja2/PoC/Jenkins/jenkins_home:/var/jenkins_home \
 	    -v /var/run/docker.sock:/var/run/docker.sock \
 	    --restart unless-stopped \
 	    4oh4/jenkins-docker

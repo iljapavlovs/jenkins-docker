@@ -1,3 +1,4 @@
+#The "official" jenkins image on the Docker hub has moved around a few times. It used to be jenkinsci/jenkins, then it moved into the official library as jenkins:latest, and now it's moved to jenkins/jenkins:lts. An example of how you'd extend the upstream image looks like the below example:
 FROM jenkins/jenkins:lts
 MAINTAINER 4oh4
 
@@ -20,6 +21,7 @@ RUN apt-get update && \
    apt-get update && \
    apt-get -y --no-install-recommends install docker-ce && \
    apt-get clean && \
+#   add jenkins user to docker group
    usermod -aG docker jenkins
 
 # drop back to the regular jenkins user - good practice
